@@ -5,3 +5,7 @@
 - [스프링 폴더 구조](https://luanaeun.tistory.com/196)
 - [JUnit을 활용한 테스트 코드 작성](https://luanaeun.tistory.com/197)
 - [DB연결하는 3가지 방법](https://luanaeun.tistory.com/198)
+
+- [컨트롤러 개념과 페이지 연결](https://luanaeun.tistory.com/200)
+- [리턴타입에 따른 페이지 연결](https://luanaeun.tistory.com/201)
+
