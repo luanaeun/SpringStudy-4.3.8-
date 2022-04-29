@@ -2,6 +2,9 @@ package com.myspring.persistence;
 
 import com.myspring.persistence.MemberDAO;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,6 +43,28 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.insert(NAMESPACE + ".memberJoin", vo);
 		
 		System.out.println("DAO: 회원가입 완료!");
+	}
+
+
+	@Override
+	public MemberVO loginMember(MemberVO vo) {
+		System.out.println("DAO: loginMember(vo)실행");
+		MemberVO voTemp = sqlSession.selectOne(NAMESPACE + ".loginMember", vo);
+		System.out.println("DAO: 로그인 완료!");
+		
+		return voTemp;
+	}
+	
+	@Override
+	public MemberVO loginMember(String userid, String userpw) {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("userid", userid);
+		paramMap.put("userpw", userpw);
+		
+		MemberVO voTemp = sqlSession.selectOne(NAMESPACE + ".loginMember", paramMap);
+		
+		return voTemp;
 	}
 
 	

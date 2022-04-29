@@ -15,5 +15,6 @@ public interface MemberDAO {
 
 	// 로그인 체크 동작
 	// public void loginMember(String userid, String userpw); -> 이건 비추.
-	//public void loginMember(MemberVO vo);
+	public MemberVO loginMember(MemberVO vo);
+	public MemberVO loginMember(String userid, String userpw);	// 오버로딩
 }
