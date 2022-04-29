@@ -3,11 +3,14 @@ package com.myspring.persistence;
 import com.myspring.persistence.MemberDAO;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.myspring.domain.MemberVO;
@@ -22,6 +25,8 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	// sql구문이 저장되어있는 mapper의 주소
 	private static final String NAMESPACE = "com.myspring.mapper.MemberMapper";
+	private static final Logger log = LoggerFactory.getLogger(MemberDAOImpl.class);
+	
 	
 	
 	@Override
@@ -67,6 +72,45 @@ public class MemberDAOImpl implements MemberDAO {
 		return voTemp;
 	}
 
+	
+	// 회원 정보 가져오기
+	@Override
+	public MemberVO getMemberInfo(String id) {
+		System.out.println("DAO: 회원정보 가져오기.");
+		MemberVO vo = sqlSession.selectOne(NAMESPACE + ".getMemberInfo", id);
+		log.info("DAO: 회원정보결과: " + vo.toString());
+		return vo;
+	}
+
+	
+	// 회원정보 수정
+	@Override
+	public Integer updateMemberInfo(MemberVO vo) {
+		System.out.println("DAO: 회원정보 수정하기.");
+		Integer result = sqlSession.update(NAMESPACE + ".modifyMemberInfo", vo);
+		log.info("회원정보 수정완료: " + result);
+		return result;
+	}
+
+	
+	// 회원 삭제
+	@Override
+	public void deleteMember(MemberVO vo) {
+		log.info("DAO: 회원정보 삭제");
+		sqlSession.delete(NAMESPACE + ".deleteMember", vo);
+	}
+
+	
+	// 회원 전체 리스트
+	@Override
+	public List<MemberVO> getMemberList() {
+		// selectList는 받아오는 VO객체를 알아서 차곡차곡 리스트형태로 만들어준다.
+		List<MemberVO> memberList = sqlSession.selectList(NAMESPACE + ".memberList");
+		return memberList;
+	}
+	
+	
+	
 	
 
 }

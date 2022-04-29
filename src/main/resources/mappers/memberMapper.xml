@@ -19,5 +19,25 @@
   	<select id="loginMember" resultType="com.myspring.domain.MemberVO">
   		select * from tbl_member where userid=#{userid} and userpw=#{userpw}
   	</select>
+  	
+  	<!-- 회원정보 조회 -->
+  	<select id="getMemberInfo" resultType="MemberVO">
+  		select * from tbl_member where userid=#{userid}
+  	</select>
+  	
+  	<!-- 회원정보 수정 -->
+  	<update id="modifyMemberInfo">
+  		update tbl_member set username=#{username}, email=#{email} where userid=#{userid} and userpw=#{userpw}
+  	</update>
+  	
+  	<!-- 회원정보 삭제 -->
+  	<update id="deleteMember">
+  		delete from tbl_member where userid=#{userid} and userpw=#{userpw}
+  	</update>
+  	
+  	<!-- 회원전체 리스트 -->
+  	<select id="memberList" resultType="MemberVO">
+  		select * from tbl_member
+  	</select>
   
   </mapper>
