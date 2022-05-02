@@ -37,6 +37,7 @@
 	
 	<!--  persistence 패키지 추가 -->
 	<context:component-scan base-package="com.myspring.persistence" />
+	<context:component-scan base-package="com.myspring.service" />
 	
 	
 </beans>

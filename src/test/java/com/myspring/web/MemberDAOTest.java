@@ -23,7 +23,7 @@ public class MemberDAOTest {
 	@Inject
 	private MemberDAO dao;
 	
-//	@Test
+	@Test
 	public void 회원가입하기() {
 		System.out.println("Test: 회원가입 실행");
 		// 회원정보 생성
@@ -82,7 +82,7 @@ public class MemberDAOTest {
 		System.out.println("Test: 회원정보 삭제 완료");
 	}
 	
-	@Test
+//	@Test
 	public void 회원전체목록() {
 		List<MemberVO> memberList = dao.getMemberList();
 		log.info("회원전체목록 결과: " + memberList);

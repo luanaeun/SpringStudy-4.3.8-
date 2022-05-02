@@ -33,7 +33,7 @@ public class MemberDAOImpl implements MemberDAO {
 	public String getTime() {
 		System.out.println("DAO: 시간정보 확인 메서드");
 		//sqlSession.selectOne("com.itwillbs.mapper.MemberMapper.getTime");
-		String time = sqlSession.selectOne(NAMESPACE + ".gettime");
+		String time = sqlSession.selectOne(NAMESPACE + ".getTime");
 		
 		return time;
 	}
