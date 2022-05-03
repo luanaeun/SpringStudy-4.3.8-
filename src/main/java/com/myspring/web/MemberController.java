@@ -30,13 +30,13 @@ public class MemberController {
 	
 	
 	// 회원가입(get) : http://localhost:8088/member/login
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String insertGet() {
 		return "/member/login";
 	}
 	
 	// 회원가입(post)
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public void insertPOST(MemberVO vo) {	
 		// 전달된 데이터 저장: 메서드 전달인자로 VO를 써주면 파라미터를 자동으로 받는다.
 		log.info("회원가입 받은 값: " + vo.toString());

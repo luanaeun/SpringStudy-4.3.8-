@@ -51,6 +51,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 
+	// 로그인 두가지 방법
 	@Override
 	public MemberVO loginMember(MemberVO vo) {
 		System.out.println("DAO: loginMember(vo)실행");
@@ -59,7 +60,6 @@ public class MemberDAOImpl implements MemberDAO {
 		
 		return voTemp;
 	}
-	
 	@Override
 	public MemberVO loginMember(String userid, String userpw) {
 		
